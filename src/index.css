@@ -1,3 +1,71 @@
+@keyframes bluebackground {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: #61dafb;
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+@keyframes slidedown {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes halfspin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes halfspinreverse {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes skatein {
+  from {
+    transform: translate(-2000px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes skateout {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(2000px, 0);
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +78,163 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  z-index: 3;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  width: 140px;
+  height: auto;
+  background: white;
+  box-shadow: -1px 1px 10px 0 grey;
+  /* animation: slidedown .3s linear forwards; */
+  z-index: 3;
+}
+
+.MenuItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  z-index: 2;
+  opacity: .8;
+}
+
+.menu-item {
+  margin-bottom: 20px;
+}
+
+.close-menu {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  animation: halfspinreverse .5s ease-in-out forwards .2s;
+}
+
+.close-menu:hover {
+  cursor: pointer;
+  transform: skew(-10deg);
+}
+
+.hamburger {
+  padding: 7px;
+  border-radius: 50%;
+  animation: bluebackground 2s infinite linear;
+}
+
+main {
+  margin: 20px;
+}
+
+main p {
+  line-height: 24px;
+  letter-spacing: .5px;
+}
+
+.Skate {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-skate {
+  margin-left: 48px;
+  animation: skatein 1.5s ease-in-out;
+}
+
+.homepage-skate.skate-away {
+  animation: skateout 2s ease-in-out forwards;
+}
+
+.boot-top {
+  width: 120px;
+  height: 260px;
+  background: #282c34;
+  border-radius: 10px;
+  transform: skew(-10deg);
+}
+
+.boot-bottom {
+  width: 280px;
+  height: 100px;
+  background: #282c34;
+  border-radius: 10px;
+  transform: skew(-10deg);
+  margin-top: -100px;
+}
+
+.frame {
+  height: 20px;
+  width: 290px;
+  background: #61dafb;
+  margin-left: -20px;
+  border-radius: 4px;
+}
+
+.wheels {
+  display: flex;
+  margin-left: -40px;
+  margin-top: -10px;
+}
+
+.wheel {
+  width: 76px;
+  height: 76px;
+  background: grey;
+  border-radius: 50%;
+  margin-right: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin .3s linear infinite;
+}
+
+.bearing {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 0 1px 2px;
+}
+
+.App-link button {
+  color: #61dafb;
+  font-size: 16px;
+  background: grey;
+  border: none;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 4px;
+}
+
+.App-link button:hover,
+.hamburger:hover {
+  transform: skew(-10deg);
+  cursor: pointer;
 }

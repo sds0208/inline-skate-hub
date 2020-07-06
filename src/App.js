@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Nav from './components/nav';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import About from './views/about';
+import Home from './views/home';
+import Learning from './views/learning';
+import Shops from './views/shops';
+import SkateWeather from './views/skate-weather';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <header className="App-header">
+          <Nav />
+        </header>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about"><About /></Route>
+            <Route path="/shops"><Shops /></Route>
+            <Route path="/skate-weather"><SkateWeather /></Route>
+            <Route path="/learning"><Learning /></Route>
+          </Switch>
+        </main>  
+      </Router>
     </div>
   );
 }
